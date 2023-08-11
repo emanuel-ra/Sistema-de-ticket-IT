@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('support_ticket_logs', function (Blueprint $table) {
             $table->id();
+            $table->string('description');
+            $table->unsignedBigInteger('ticket_id');
             $table->timestamps();
+
+            $table->foreign('ticket_id')->references('id')->on('support_tickets');
         });
     }
 
