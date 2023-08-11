@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\AuthenticationController as v1Auth;
 use App\Http\Controllers\Api\V1\Catalogues\BranchController as v1Brach;
 use App\Http\Controllers\Api\V1\Catalogues\DepartmentController as v1Department;
 use App\Http\Controllers\Api\V1\Catalogues\SupportTypeController as v1SupportType;
+use App\Http\Controllers\Api\V1\Client\SupportTickets as v1ClientSupportTickets;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -46,7 +47,7 @@ Route::prefix('v1')->group(function(){
 
     // * TICKETS FROM CLIENT SIDE
     Route::prefix('tickets')->group(function(){
-        //Route::post('request',[v1Auth::class,'store']);
+        Route::post('request',[v1ClientSupportTickets::class,'store']);
     });
 
 
@@ -61,12 +62,10 @@ Route::prefix('v1')->group(function(){
         });
 
         // TICKETS
-        Route::prefix('admin')->group(function(){
-            
+        Route::prefix('admin')->group(function(){            
             Route::prefix('tickets')->group(function(){
 
-            });
-            
+            });            
         });
     });
     
