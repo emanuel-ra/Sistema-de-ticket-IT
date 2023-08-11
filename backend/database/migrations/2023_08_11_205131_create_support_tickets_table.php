@@ -23,14 +23,13 @@ return new class extends Migration
             $table->unsignedBigInteger('branch_id');
             $table->unsignedBigInteger('type_id');
             $table->unsignedBigInteger('department_id');
-            $table->unsignedBigInteger('admin_id');
+            $table->unsignedBigInteger('admin_id')->default(0);
 
 
             $table->foreign('status_id')->references('id')->on('statuses');
             $table->foreign('branch_id')->references('id')->on('branches');
             $table->foreign('type_id')->references('id')->on('support_types');
             $table->foreign('department_id')->references('id')->on('departments');
-            $table->foreign('admin_id')->references('id')->on('users');
 
             $table->index(['requester_email']);
 
