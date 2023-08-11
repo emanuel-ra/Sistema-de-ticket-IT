@@ -16,7 +16,9 @@ class DatabaseSeeder extends Seeder
             BranchSeeder::class ,
             DepartmentSeeder::class ,
             SupportTypeSeeder::class ,
+            StatusSeeder::class ,
         ]);
+        
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Status;
 
 class StatusSeeder extends Seeder
 {
@@ -12,6 +13,8 @@ class StatusSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Status::create(["name"=>"Pendiente"]);
+        Status::create(["name"=>"En Proceso"]);
+        Status::create(["name"=>"Cerrado"]);
     }
 }
