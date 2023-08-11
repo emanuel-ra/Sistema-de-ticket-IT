@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\AuthenticationController as v1Auth;
+use App\Http\Controllers\Api\V1\Catalogues\BranchController as v1Brach;
+use App\Http\Controllers\Api\V1\Catalogues\DepartmentController as v1Department;
+use App\Http\Controllers\Api\V1\Catalogues\SupportTypeController as v1SupportType;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 /**
  * *  V1 ROUTES 
 */
-Route::prefix('vi')->group(function(){
+Route::prefix('v1')->group(function(){
 
     /**
      * * FREE ROUTES
@@ -29,6 +32,16 @@ Route::prefix('vi')->group(function(){
      // * AUTHENTICATION
     Route::prefix('auth')->group(function(){
         Route::post('login',[v1Auth::class,'login']);
+    });
+
+    // * CATALOGUES FROM CLIENT SIDE
+    Route::prefix('catalogues')->group(function(){
+        // * GET BRANCHES
+        Route::get('Branches',[v1Brach::class,'Get']);
+        // * GET DEPARTMENTS
+        Route::get('Departments',[v1Department::class,'Get']);
+        // * GET SUPPORT TYPES
+        Route::get('Support/types',[v1SupportType::class,'Get']);
     });
 
     // * TICKETS FROM CLIENT SIDE
