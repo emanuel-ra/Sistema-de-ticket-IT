@@ -14,7 +14,9 @@ function RequestSupport() {
     const { supportTypes, getSupportTypes } = useSupportTypes()
 
     const { ticket, createTicket } = useTickets()
-
+    /**
+     * TODO: FIX THE ERROR WHEN SOME CREATE THE FIRS  TICKET, IT SHOW UNDEFINED
+     */
     const onSubmit = data => {
         
         createTicket({ data })
